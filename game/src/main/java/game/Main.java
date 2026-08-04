@@ -258,9 +258,16 @@ public class Main {
     // ---------- ввод ----------
 
     // Читает целое число. Если игрок ввёл не число — просит ещё раз.
+    // Если ввод закончился совсем (Ctrl+Z в Windows, Ctrl+D в Linux/macOS,
+    // или конец перенаправленного файла) — вежливо завершаем игру.
     static int readInt(String prompt) {
         System.out.print(prompt);
         while (!INPUT.hasNextInt()) {
+            if (!INPUT.hasNext()) { // ввода больше не будет
+                System.out.println();
+                System.out.println(YELLOW + "Ввод закончился — бой прерван. До встречи!" + RESET);
+                System.exit(0); // корректно выходим из игры
+            }
             INPUT.next(); // выбрасываем то, что числом не является
             System.out.print("Нужно число. Попробуй ещё раз: ");
         }
