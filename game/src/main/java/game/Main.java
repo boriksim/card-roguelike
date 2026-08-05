@@ -30,12 +30,12 @@ public class Main {
     // Поменяй число или текст, запусти игру и посмотри на эффект.
 
     static final String GAME_TITLE = "БЕЗЫМЯННЫЙ КАРТОЧНЫЙ РОГЛАЙК"; // урок 0.3: придумай своё название!
-    static final String HERO_NAME = "Страж";
-    static final int HERO_HP = 30;          // здоровье героя
+    static final String HERO_NAME = "Bob";
+    static final int HERO_HP = 50;          // здоровье героя
     static final int ENERGY_PER_TURN = 3;   // энергия на один ход
 
     static final String ENEMY_NAME = "Гоблин-мародёр";
-    static final int ENEMY_HP = 26;         // здоровье врага
+    static final int ENEMY_HP = 50;         // здоровье врага
     static final int ENEMY_DAMAGE = 7;      // сколько враг бьёт
     static final int ENEMY_BLOCK = 4;       // сколько блока даёт его защита
 
@@ -44,7 +44,7 @@ public class Main {
     // Такие списки называются массивами (arrays) — разберём в уроке 1.6.
     static final String[] CARD_NAMES  = { "Удар", "Щит", "Зелье" };
     static final int[]    CARD_COST   = { 1, 1, 2 };  // цена карты в энергии
-    static final int[]    CARD_DAMAGE = { 6, 0, 0 };  // урон врагу
+    static final int[]    CARD_DAMAGE = { 9, 0, 0 };  // урон врагу
     static final int[]    CARD_BLOCK  = { 0, 5, 0 };  // блок себе (гасит удар врага)
     static final int[]    CARD_HEAL   = { 0, 0, 7 };  // лечение себе
 
