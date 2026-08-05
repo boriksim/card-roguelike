@@ -29,7 +29,7 @@ public class Main {
     // Это константы (constants) — значения, задающие правила боя.
     // Поменяй число или текст, запусти игру и посмотри на эффект.
 
-    static final String GAME_TITLE = "БЕЗЫМЯННЫЙ КАРТОЧНЫЙ РОГЛАЙК"; // урок 0.3: придумай своё название!
+    static final String GAME_TITLE = "Dungeon Explorer: Card Battler"; // урок 0.3: придумай своё название!
     static final String HERO_NAME = "Bob";
     static final int HERO_HP = 50;          // здоровье героя
     static final int ENERGY_PER_TURN = 3;   // энергия на один ход
