@@ -196,6 +196,7 @@ public class Main {
         System.out.println("   " + GAME_TITLE);
         System.out.println("==================================================" + RESET);
         System.out.println(HERO_NAME + " входит в подземелье. Навстречу — " + ENEMY_NAME + "!");
+        System.out.println(HERO_NAME + ": " + HERO_HP + " HP, энергия на ход: " + ENERGY_PER_TURN);
     }
 
     static void printStatus() {

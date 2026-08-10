@@ -21,7 +21,14 @@ public class Exercise {
         // Лечение зелья: 8
         // Множитель крита: 1.5
         // Щит поднят: true
-        // TODO: твой код здесь
+        int heroHp = 30;
+        int potionHeal = 8;
+        double critMultiplier = 1.5;
+        boolean shieldUp = true;
+        System.out.println("HP героя: " + heroHp);
+        System.out.println("Лечение зелья: " + potionHeal);
+        System.out.println("Множитель крита: " + critMultiplier);
+        System.out.println("Щит поднят: " + shieldUp);
 
         // ШАГ 2. Крит: базовый урон 6, умноженный на critMultiplier.
         // Результат умножения int на double — это double, а урон в игре целый.
