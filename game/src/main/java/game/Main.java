@@ -192,9 +192,9 @@ public class Main {
     // ---------- вывод на экран ----------
 
     static void printBanner() {
-        System.out.println(BOLD + CYAN + "==================================================");
+        System.out.println(BOLD + CYAN + "=".repeat(50));
         System.out.println("   " + GAME_TITLE);
-        System.out.println("==================================================" + RESET);
+        System.out.println("=".repeat(50) + RESET);
         System.out.println(HERO_NAME + " входит в подземелье. Навстречу — " + ENEMY_NAME + "!");
         System.out.println(HERO_NAME + ": " + HERO_HP + " HP, энергия на ход: " + ENERGY_PER_TURN);
     }
