@@ -237,7 +237,7 @@ public class Main {
         }
     }
 
-    // Собирает описание эффектов карты, например " урон 6" или " лечение 7".
+    // Собирает описание эффектов карты, например" урон 6" или" лечение 7".
     static String describeCard(int index) {
         String text = "";
         if (CARD_DAMAGE[index] > 0) {

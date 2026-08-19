@@ -12,6 +12,7 @@
     <modules>
         <module>game</module>
         <module>m01</module>
+        <module>m02a</module>
     </modules>
 
     <properties>
