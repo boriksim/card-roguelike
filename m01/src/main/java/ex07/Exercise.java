@@ -17,22 +17,20 @@ public class Exercise {
     // ШАГ 1. Урон сквозь блок.
     // Чего ждёт тест — смотри damageAfterBlock* в ExerciseTest.
     public static int damageAfterBlock(int damage, int block) {
-        // TODO: замени заглушку
-        return 0;
+        return Math.max(0, damage - block);
     }
 
     // ШАГ 2. Лечение с потолком.
     // Спецификация — тесты healedHp* в ExerciseTest.
     public static int healedHp(int currentHp, int healAmount, int maxHp) {
-        // TODO: замени заглушку
-        return 0;
+        return Math.min(currentHp + healAmount, maxHp);
     }
 
     // ШАГ 3 (со звёздочкой). Полоска здоровья из 10 клеток:
     // '#' — оставшееся HP, '-' — потерянное.
     // Сколько клеток закрашивать — подскажут тесты (целочисленное деление!).
     public static String hpBar(int hp, int maxHp) {
-        // TODO: замени заглушку
-        return "";
+        int percent = hp * 10 / maxHp;
+        return "#".repeat(percent) + "-".repeat(10 - percent);
     }
 }

@@ -34,6 +34,8 @@ public class Main {
     static final int HERO_HP = 50;          // здоровье героя
     static final int ENERGY_PER_TURN = 3;   // энергия на один ход
 
+    static int totalCardsPlayed = 0;
+
     static final String ENEMY_NAME = "Гоблин-мародёр";
     static final int ENEMY_HP = 50;         // здоровье врага
     static final int ENEMY_DAMAGE = 7;      // сколько враг бьёт
@@ -42,11 +44,11 @@ public class Main {
     // Рука героя — три карты. Данные лежат «параллельно»: CARD_NAMES[0],
     // CARD_COST[0], CARD_DAMAGE[0] — это всё про первую карту.
     // Такие списки называются массивами (arrays) — разберём в уроке 1.6.
-    static final String[] CARD_NAMES  = { "Удар", "Щит", "Зелье" };
-    static final int[]    CARD_COST   = { 1, 1, 2 };  // цена карты в энергии
-    static final int[]    CARD_DAMAGE = { 9, 0, 0 };  // урон врагу
-    static final int[]    CARD_BLOCK  = { 0, 5, 0 };  // блок себе (гасит удар врага)
-    static final int[]    CARD_HEAL   = { 0, 0, 7 };  // лечение себе
+    static final String[] CARD_NAMES  = { "Удар", "Щит", "Зелье", "Удар Щитом"};
+    static final int[]    CARD_COST   = { 1, 1, 2, 3};  // цена карты в энергии
+    static final int[]    CARD_DAMAGE = { 9, 0, 0, 7};  // урон врагу
+    static final int[]    CARD_BLOCK  = { 0, 5, 0, 4};  // блок себе (гасит удар врага)
+    static final int[]    CARD_HEAL   = { 0, 0, 7, 0};  // лечение себе
 
     // === конец блока «МЕНЯЙ МЕНЯ» ===============================
 
@@ -149,6 +151,7 @@ public class Main {
             heroHp = healedHp(heroHp, CARD_HEAL[index], HERO_HP);
             System.out.println("  " + HERO_NAME + " лечится на " + GREEN + (heroHp - before) + " HP" + RESET + ".");
         }
+        totalCardsPlayed++;
     }
 
     // ---------- ход врага ----------
@@ -202,6 +205,9 @@ public class Main {
     static void printStatus() {
         System.out.println(GREEN + HERO_NAME + "  [" + hpBar(heroHp, HERO_HP) + "] "
                 + heroHp + "/" + HERO_HP + " HP" + RESET);
+        if (heroHp * 4 <= HERO_HP) {
+            System.out.println(YELLOW + "Осторожно: HP на исходе!" + RESET);
+        }
         String enemyLine = RED + ENEMY_NAME + "  [" + hpBar(enemyHp, ENEMY_HP) + "] "
                 + enemyHp + "/" + ENEMY_HP + " HP";
         if (enemyBlock > 0) {
@@ -253,7 +259,8 @@ public class Main {
         } else {
             System.out.println(RED + BOLD + "ПОРАЖЕНИЕ... " + HERO_NAME + " пал в бою." + RESET);
         }
-        System.out.println("Это была " + GAME_TITLE + " v0.0. Продолжение — в следующих модулях!");
+        System.out.println(CYAN + "Всего карт сыграно: " + totalCardsPlayed + RESET);
+        System.out.println("Это была " + GAME_TITLE + " v0.1. Продолжение — в следующих модулях!");
     }
 
     // ---------- ввод ----------

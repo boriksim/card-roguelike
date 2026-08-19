@@ -18,16 +18,15 @@ public class Exercise {
 
     // ШАГ 1. Хватает ли энергии на карту.
     public static boolean canPlay(int cardCost, int energy) {
-        // TODO: замени заглушку
-        return false;
+        return cardCost <= energy;
     }
 
     // ШАГ 2. Намерение врага на ход: каждый третий ход (3, 6, 9, ...)
     // враг уходит в защиту, в остальные — атакует.
     // Верни строку "DEFEND" или "ATTACK".
     public static String enemyIntent(int turnNumber) {
-        // TODO: замени заглушку
-        return "";
+        if (turnNumber % 3 == 0) { return "DEFEND"; }
+        else { return "ATTACK"; }
     }
 
     // ШАГ 3 (со звёздочкой). Итог боя:
@@ -36,7 +35,8 @@ public class Exercise {
     //   "NOBODY" — оба живы, бой продолжается.
     // Если пали оба, победа засчитывается врагу: "ENEMY".
     public static String winner(int heroHp, int enemyHp) {
-        // TODO: замени заглушку
-        return "";
+        if (heroHp <= 0) { return "ENEMY"; }
+        if (enemyHp <= 0) { return "HERO"; }
+        else { return "NOBODY"; }
     }
 }

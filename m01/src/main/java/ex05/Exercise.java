@@ -15,16 +15,23 @@ public class Exercise {
     // Сложи damagePerHit ровно hits раз циклом for.
     // Умножением не считается — цель упражнения размять цикл.
     public static int totalDamage(int hits, int damagePerHit) {
-        // TODO: замени заглушку настоящим циклом
-        return 0;
+        int totalDamage = 0;
+        for (int i = 0; i < hits; i++) {
+            totalDamage += damagePerHit;
+        }
+        return totalDamage;
     }
 
     // ШАГ 2. Сколько ударов нужно, чтобы добить врага.
     // Бьём по damagePerHit за удар, пока HP врага не упадёт до 0 или ниже.
     // Подойдёт цикл while со счётчиком ударов.
     public static int hitsToDefeat(int enemyHp, int damagePerHit) {
-        // TODO: замени заглушку
-        return 0;
+        int hits = 0;
+        while (enemyHp > 0) {
+            enemyHp -= damagePerHit;
+            hits++;
+        }
+        return hits;
     }
 
     // ШАГ 3 (со звёздочкой). На каком ходу падёт герой.
@@ -34,7 +41,19 @@ public class Exercise {
     // Внимание: если healPerTurn >= enemyDamage, герой не падёт никогда —
     // верни -1 сразу, иначе твой цикл станет бесконечным (тот самый баг из урока!).
     public static int lastTurnOfHero(int heroHp, int enemyDamage, int healPerTurn) {
-        // TODO: замени заглушку
-        return 0;
+        int turn = 1;
+        while (heroHp > 0) {
+            if (healPerTurn >= enemyDamage) {
+                return -1;
+            }
+            heroHp -= enemyDamage;
+            if (heroHp <= 0) {
+                break;
+            } else {
+                heroHp += healPerTurn;
+            }
+            turn++;
+        }
+        return turn;
     }
 }

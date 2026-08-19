@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Тесты к уроку 1.6 «Массивы».
  * Убери строку @Disabled ниже, когда возьмёшься за упражнение.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 1.6)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 1.6)")
 class ExerciseTest {
 
     @Test

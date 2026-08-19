@@ -1,5 +1,7 @@
 package ex04;
 
+import javax.annotation.processing.SupportedSourceVersion;
+
 /*
  * Урок 1.4 — «Условия».
  *
@@ -22,7 +24,19 @@ public class Exercise {
         // Урон после блока: 10
         // Затем if/else: если урон >= heroHp — выведи «Смертельный удар!»,
         // иначе — «Пережил.»
-        // TODO: твой код здесь
+        if (hasBlock) {
+            incomingDamage -= 5;
+            if (incomingDamage < 0) {
+                incomingDamage = 0;
+            }
+        }
+        System.out.println("Урон после блока: " + incomingDamage);
+
+        if (incomingDamage >= heroHp) {
+            System.out.println("Смертельный удар!");
+        } else  {
+            System.out.println("Пережил.");
+        }
 
         // ШАГ 2. Вычти итоговый урон из heroHp и выведи:
         // HP после удара: 2
@@ -30,7 +44,15 @@ public class Exercise {
         //   больше 20 — выведи «Полон сил.»
         //   больше 5  — выведи «Ранен.»
         //   иначе     — выведи «При смерти!»
-        // TODO: твой код здесь
+        heroHp -= incomingDamage;
+        System.out.println("HP после удара: " + heroHp);
+        if (heroHp > 20) {
+            System.out.println("Полон сил.");
+        } else if (heroHp > 5) {
+            System.out.println("Ранен.");
+        } else {
+            System.out.println("При смерти!");
+        }
 
         // ШАГ 3. Стрелочный switch (Java 21) по roomType:
         //   "battle" -> Бой: доставай карты.
@@ -42,6 +64,11 @@ public class Exercise {
         //     case "battle" -> System.out.println("...");
         //     ...
         // }
-        // TODO: твой код здесь
+        switch (roomType) {
+            case "battle" -> System.out.println("Бой: доставай карты.");
+            case "rest" -> System.out.println("Отдых: можно подечиться.");
+            case "shop" -> System.out.println("Магазин: купи карту.");
+            default -> System.out.println("Неизвестная комната...");
+        }
     }
 }

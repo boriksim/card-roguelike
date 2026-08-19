@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Твоя задача — написать в Exercise.java методы, которым тесты поверят.
  * Убери строку @Disabled — и вперёд.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 1.7)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 1.7)")
 class ExerciseTest {
 
     @Test

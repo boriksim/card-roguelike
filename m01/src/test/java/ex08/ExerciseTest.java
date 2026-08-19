@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Тесты к уроку 1.8 — разминка перед сборкой v0.1.
  * Убери строку @Disabled ниже, когда возьмёшься за упражнение.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 1.8)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 1.8)")
 class ExerciseTest {
 
     @Test
