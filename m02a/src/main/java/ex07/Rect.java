@@ -13,15 +13,16 @@ package ex07;
  */
 public class Rect extends Shape {
 
-    // TODO: поля
+    private double width;
+    private double height;
 
     public Rect(double width, double height) {
-        // TODO: сохрани параметры
+        this.width = width;
+        this.height = height;
     }
 
     @Override
     public double area() {
-        // TODO: замени заглушку
-        return -1;
+        return this.width * this.height;
     }
 }

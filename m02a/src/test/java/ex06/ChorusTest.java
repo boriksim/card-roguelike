@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Тесты к уроку 2a.6 «Полиморфизм».
  * Убери строку @Disabled ниже, когда возьмёшься за упражнение.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.6)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.6)")
 class ChorusTest {
 
     @Test

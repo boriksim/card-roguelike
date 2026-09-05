@@ -11,12 +11,11 @@ package ex08;
 public class Bus extends Vehicle {
 
     public Bus() {
-        super("", 0); // TODO: исправь аргументы
+        super("Автобус", 20);
     }
 
     @Override
     public int tripPrice(int dist) {
-        // TODO: замени заглушку формулой
-        return -1;
+        return 200 + 5 * dist;
     }
 }

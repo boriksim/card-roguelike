@@ -45,7 +45,6 @@ public abstract class Vehicle {
     // (целочисленно). Пиши через tripPrice(dist) и getCapacity() —
     // и метод будет работать для любого транспорта, даже будущего.
     public int pricePerParcel(int dist) {
-        // TODO: замени заглушку
-        return -1;
+        return tripPrice(dist) / getCapacity();
     }
 }

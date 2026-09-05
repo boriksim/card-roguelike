@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Тесты к уроку 2a.5 «Наследование».
  * Убери строку @Disabled ниже, когда возьмёшься за упражнение.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.5)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.5)")
 class WolfTest {
 
     @Test

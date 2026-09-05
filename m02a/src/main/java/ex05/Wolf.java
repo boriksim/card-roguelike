@@ -18,7 +18,7 @@ public class Wolf extends Animal {
     // «Безымянным зверем» с 1 HP. Почини: передай name и hp родителю
     // строкой super(name, hp); — она должна быть первой.
     public Wolf(String name, int hp) {
-        // TODO: одна строка
+        super(name, hp);
     }
 
     // ШАГ 2. Новая способность, которой у Animal нет: охота.
@@ -27,6 +27,7 @@ public class Wolf extends Animal {
     //   - после удачной охоты волк отъедается: подними СВОЁ hp на 2
     //     (поле hp у родителя protected — наследнику можно напрямую).
     public void hunt(Animal prey) {
-        // TODO
+        prey.takeDamage(BITE_DAMAGE);
+        hp += 2;
     }
 }

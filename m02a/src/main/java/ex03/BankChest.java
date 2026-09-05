@@ -16,18 +16,17 @@ public class BankChest {
     // ШАГ 1. Объяви private-поле gold типа int — запас золота.
     // Снаружи класса оно не видно: строчка chest.gold = -100; в чужом
     // коде даже не скомпилируется. В этом и смысл инкапсуляции.
-    // TODO: объяви поле
+    private int gold;
 
     // ШАГ 2. Геттер — единственный способ ПОСМОТРЕТЬ золото снаружи.
     public int getGold() {
-        // TODO: замени заглушку — верни поле
-        return -1;
+        return gold;
     }
 
     // ШАГ 3. Положить золото. Класть можно только положительное
     // количество: amount <= 0 молча игнорируем.
     public void deposit(int amount) {
-        // TODO
+        gold += Math.max(0, amount);
     }
 
     // ШАГ 4. Забрать золото. Правила:
@@ -37,7 +36,17 @@ public class BankChest {
     // После любого вызова золота в сундуке >= 0 — за этим следит
     // только этот метод, и потому правило невозможно обойти.
     public int withdraw(int amount) {
-        // TODO: замени заглушку
-        return -1;
+        int withdrawAmount = 0;
+        if (amount > gold) {
+            withdrawAmount = gold;
+            gold = 0;
+            return withdrawAmount;
+        } else if (amount <= 0) {
+            return 0;
+        } else {
+            withdrawAmount = amount;
+            gold -= amount;
+            return withdrawAmount;
+        }
     }
 }

@@ -8,5 +8,6 @@ package ex06;
  */
 public class Dog extends Animal {
 
-    // TODO: @Override + свой voice()
+    @Override
+    public String voice() { return "Гав!"; }
 }

@@ -17,7 +17,13 @@ public class Exercise {
     // кто перед тобой, — Java сама выбирает версию метода по реальному
     // объекту. Это и есть полиморфизм.
     public static String chorus(Animal[] animals) {
-        // TODO: замени заглушку
-        return null;
+        String chorus = "";
+        for (int i = 0; i < animals.length; i++) {
+            if (i > 0) {
+                chorus += " ";
+            }
+            chorus += animals[i].voice();
+        }
+        return chorus;
     }
 }

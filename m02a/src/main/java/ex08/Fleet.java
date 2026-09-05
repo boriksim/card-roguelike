@@ -13,7 +13,12 @@ public class Fleet {
     // Обрати внимание на тип параметра: подойдёт ЛЮБОЙ Vehicle[] —
     // полиморфизм сам вызовет нужную формулу tripPrice() у каждого.
     public static Vehicle cheapest(Vehicle[] fleet, int dist) {
-        // TODO: замени заглушку
-        return null;
+        Vehicle best = fleet[0];
+        for (int i = 1; i < fleet.length; i++) {
+            if (fleet[i].tripPrice(dist) < best.tripPrice(dist)) {
+                best = fleet[i];
+            }
+        }
+        return best;
     }
 }

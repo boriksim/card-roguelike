@@ -24,16 +24,14 @@ public class Potion {
     // ШАГ 1. Верни описание зелья, собранное из ЕГО полей, ровно в виде:
     // Малое зелье (100 мл): +7 HP
     public String describe() {
-        // TODO: замени заглушку
-        return "";
+        return name + " (" + volume + " мл): +" + healPower + " HP";
     }
 
     // ШАГ 2. Сильнее ли ЭТО зелье, чем other?
     // Сравни healPower этого объекта (можно писать просто healPower,
     // можно this.healPower — это одно и то же) с other.healPower.
     public boolean strongerThan(Potion other) {
-        // TODO: замени заглушку
-        return false;
+        return this.healPower > other.healPower;
     }
 
     // ШАГ 3 (со звёздочкой). Слить два зелья в одно новое.
@@ -41,7 +39,10 @@ public class Potion {
     // суммы объёмов и сил обоих зелий. Верни НОВЫЙ объект:
     // ни this, ни other меняться не должны.
     public Potion mixWith(Potion other) {
-        // TODO: замени заглушку
-        return null;
+        Potion mixedPotion = new Potion();
+        mixedPotion.name = "Микстура";
+        mixedPotion.volume = this.volume + other.volume;
+        mixedPotion.healPower = this.healPower + other.healPower;
+        return mixedPotion;
     }
 }

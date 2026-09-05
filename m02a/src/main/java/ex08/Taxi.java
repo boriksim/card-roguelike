@@ -12,7 +12,6 @@ public class Taxi extends Vehicle {
 
     @Override
     public int tripPrice(int dist) {
-        // TODO: замени заглушку формулой
-        return -1;
+        return 50 + 15 * dist;
     }
 }

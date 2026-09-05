@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Тесты к уроку 2a.2 «Конструкторы и this».
  * Убери строку @Disabled ниже, когда возьмёшься за упражнение.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.2)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.2)")
 class WeaponTest {
 
     @Test

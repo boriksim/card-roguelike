@@ -26,18 +26,18 @@ public class Minion {
     //   - выдай миньону id, равный новому значению счётчика
     //     (первый созданный — id 1, второй — id 2, ...).
     public Minion(String name) {
-        // TODO
+        totalCreated++;
+        this.name = name;
+        this.id = totalCreated;
     }
 
     // ШАГ 2. Геттеры объекта: имя и номер ЭТОГО миньона.
     public String getName() {
-        // TODO: замени заглушку
-        return null;
+        return this.name;
     }
 
     public int getId() {
-        // TODO: замени заглушку
-        return -1;
+        return this.id;
     }
 
     // ШАГ 3. static-метод: сколько миньонов создано ВСЕГО.
@@ -45,8 +45,7 @@ public class Minion {
     // Minion.getTotalCreated(). Внутри static-метода видны только
     // static-поля: полей name и id здесь «не существует».
     public static int getTotalCreated() {
-        // TODO: замени заглушку
-        return -1;
+        return totalCreated;
     }
 
     // Сброс счётчика — нужен тестам, чтобы каждый тест начинался

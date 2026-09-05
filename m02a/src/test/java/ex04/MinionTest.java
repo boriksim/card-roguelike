@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Тесты к уроку 2a.4 «static: у класса или у объекта?».
  * Убери строку @Disabled ниже, когда возьмёшься за упражнение.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.4)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.4)")
 class MinionTest {
 
     @BeforeEach

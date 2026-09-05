@@ -19,7 +19,9 @@ public class Weapon {
     // Имена параметров совпадают с именами полей, поэтому поле называй
     // через this: this.name = name; — слева поле, справа параметр.
     public Weapon(String name, int damage, int durability) {
-        // TODO: три присваивания
+        this.name = name;
+        this.damage = damage;
+        this.durability = durability;
     }
 
     // ШАГ 2. Второй конструктор — для оружия со стандартной прочностью 10.
@@ -27,14 +29,18 @@ public class Weapon {
     // строкой this(name, damage, 10); — она должна быть ПЕРВОЙ (и здесь
     // единственной) строкой конструктора.
     public Weapon(String name, int damage) {
-        // TODO: одна строка
+        this(name, damage, 10);
     }
 
     // ШАГ 3. Удар: верни damage и уменьши durability на 1.
     // Сломанное оружие (durability == 0) бьёт на 0, и прочность
     // дальше не падает — в минус она не уходит.
     public int strike() {
-        // TODO: замени заглушку
-        return -1;
+        if (durability > 0) {
+            durability -= 1;
+            return this.damage;
+        } else {
+            return 0;
+        }
     }
 }

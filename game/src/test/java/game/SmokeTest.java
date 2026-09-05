@@ -8,46 +8,67 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /*
  * Смоук-тест (smoke test) — быстрая проверка, что проект «дышит».
- * Ты запускаешь его в уроке 0.2 и должен увидеть зелёную галочку.
- *
- * ⚙ Что такое @Test и как устроены тесты — разберём в модуле 5.
- * Тест нарочно не проверяет конкретные числа из блока «МЕНЯЙ МЕНЯ»:
- * меняй их смело, зелёная галочка не пропадёт.
+ * Версия для v0.2: проверяет правила классов Hero, Card и Enemy,
+ * а не конкретные числа из блока «МЕНЯЙ МЕНЯ» — меняй их смело,
+ * зелёная галочка не пропадёт.
  */
 class SmokeTest {
 
     @Test
-    void gameConstantsLookSane() {
-        assertFalse(Main.GAME_TITLE.isBlank(), "GAME_TITLE не должен быть пустой строкой");
-        assertFalse(Main.HERO_NAME.isBlank(), "У героя должно быть имя");
-        assertTrue(Main.HERO_HP > 0, "HERO_HP должен быть больше нуля — иначе герой мёртв ещё до боя");
-        assertTrue(Main.ENEMY_HP > 0, "ENEMY_HP должен быть больше нуля");
-        assertTrue(Main.ENERGY_PER_TURN > 0, "Без энергии не сыграть ни одной карты");
+    void heroKeepsHpInBounds() {
+        Hero hero = new Hero("Тест", 30);
+        hero.takeDamage(999);
+        assertEquals(0, hero.getHp(), "HP не должно уходить в минус");
+        assertFalse(hero.isAlive(), "Герой с 0 HP считается павшим");
+
+        Hero healthy = new Hero("Тест", 30);
+        healthy.heal(999);
+        assertEquals(30, healthy.getHp(), "Лечение не поднимает HP выше максимума");
     }
 
     @Test
-    void everyCardHasAllStats() {
-        int cards = Main.CARD_NAMES.length;
-        assertTrue(cards > 0, "В руке должна быть хотя бы одна карта");
-        assertEquals(cards, Main.CARD_COST.length,
-                "Массивы карт «параллельные»: у каждой карты должна быть стоимость");
-        assertEquals(cards, Main.CARD_DAMAGE.length,
-                "У каждой карты должно быть значение урона (хотя бы 0)");
-        assertEquals(cards, Main.CARD_BLOCK.length,
-                "У каждой карты должно быть значение блока (хотя бы 0)");
-        assertEquals(cards, Main.CARD_HEAL.length,
-                "У каждой карты должно быть значение лечения (хотя бы 0)");
+    void heroBlockAbsorbsDamage() {
+        Hero hero = new Hero("Тест", 30);
+        hero.addBlock(5);
+        hero.takeDamage(7);
+        assertEquals(28, hero.getHp(), "5 блока гасят 5 из 7 урона: до HP должно дойти 2");
+        assertEquals(0, hero.getBlock(), "Блок расходуется ударом");
     }
 
     @Test
-    void damageAfterBlockNeverNegative() {
-        assertEquals(4, Main.damageAfterBlock(6, 2), "6 урона через 2 блока — должно пройти 4");
-        assertEquals(0, Main.damageAfterBlock(3, 10), "Блок не может «отлечить»: минимум 0 урона");
+    void cardDescribesItsEffects() {
+        Card strike = new Card("Тестовый удар", 1, 6, 0, 0);
+        assertTrue(strike.describe().contains("урон"), "Карта с уроном должна упоминать урон");
+        Card potion = new Card("Тестовое зелье", 2, 0, 0, 7);
+        assertTrue(potion.describe().contains("лечение"), "Карта с лечением должна упоминать лечение");
     }
 
     @Test
-    void healingRespectsMaximum() {
-        assertEquals(20, Main.healedHp(13, 7, 30), "13 HP + 7 лечения = 20");
-        assertEquals(30, Main.healedHp(28, 7, 30), "Лечение не поднимает HP выше максимума");
+    void everyEnemyKindIsReadyForBattle() {
+        Enemy[] enemies = { new Slime(), new Goblin(), new Archer(), new Boss() };
+        for (Enemy enemy : enemies) {
+            assertTrue(enemy.isAlive(), "Враг должен выходить в бой живым: " + enemy.getName());
+            assertFalse(enemy.getName().isBlank(), "У врага должно быть имя");
+            assertFalse(enemy.chooseIntent().isBlank(),
+                    "Враг обязан объявлять намерение: " + enemy.getName());
+        }
+    }
+
+    @Test
+    void enemyBlockAbsorbsDamage() {
+        Enemy goblin = new Goblin();
+        int startHp = goblin.getHp();
+        goblin.addBlock(4);
+        goblin.takeDamage(6);
+        assertEquals(startHp - 2, goblin.getHp(), "4 блока гасят 4 из 6 урона: до HP должно дойти 2");
+    }
+
+    @Test
+    void bossEnragesBelowHalfHp() {
+        Boss boss = new Boss();
+        assertFalse(boss.isEnraged(), "На старте босс спокоен");
+        // Снимаем боссу здоровье до значения чуть ниже половины.
+        boss.takeDamage(boss.getMaxHp() - boss.getMaxHp() / 2 + 1);
+        assertTrue(boss.isEnraged(), "Ниже половины HP босс должен впасть в ярость");
     }
 }

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Тесты к уроку 2a.3 «Инкапсуляция».
  * Убери строку @Disabled ниже, когда возьмёшься за упражнение.
  */
-@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.3)")
+//@Disabled("Убери эту строку, когда начнёшь упражнение (урок 2a.3)")
 class BankChestTest {
 
     @Test

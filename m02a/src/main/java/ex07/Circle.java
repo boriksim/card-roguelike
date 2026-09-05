@@ -10,15 +10,14 @@ package ex07;
  */
 public class Circle extends Shape {
 
-    // TODO: поле
+    private double radius;
 
     public Circle(double radius) {
-        // TODO: сохрани параметр
+        this.radius = radius;
     }
 
     @Override
     public double area() {
-        // TODO: замени заглушку
-        return -1;
+        return Math.PI * Math.pow(radius, 2);
     }
 }
